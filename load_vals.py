@@ -11,8 +11,18 @@ ans = "1000111000000010001111010101111100001011111011000010011011010001000100001
 
 ans = "".join( ["1" for e in range(497)] ) 
 
+def sign( x ):
+    ret = 0
+    if x > 0:
+        ret = 1
+    return ret
+
 def get_ans_from_file( filename ):
-    pass
+    f = open( filename )
+    l = f.readline()
+    vals = [str( sign( int( e ) ) ) for e in l.split(" ") if int(e) != 0]
+    print( vals )
+    return "".join( vals )
 
 
 def load_vals_to_vals():
@@ -24,5 +34,7 @@ def load_vals_to_vals():
         cursor.execute( sql, { "id" : (i + 1) * (-1), "val" : 1 - v } )
         db.commit()
     
+ans = get_ans_from_file( "examp\\ex1.ans" )
 load_vals_to_vals()
+print( ans )
 print("yes")
