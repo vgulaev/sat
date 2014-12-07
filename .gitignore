@@ -1,0 +1,4 @@
+*.pyc
+.project
+helloword.py
+examp/
